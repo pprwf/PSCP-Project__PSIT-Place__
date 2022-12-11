@@ -67,7 +67,7 @@ h6{
 
 /*body eiei*/
 .middle{
-    background-image: url("{{url_for('img', filename='img/background.jpg.png')}}");
+    background-image: url("/static/img/background.jpg.png");
     overflow: hidden;
     height: 100vh;
     width: 100%;
@@ -110,7 +110,7 @@ h6{
     color: black;
 }
 .middle div button{
-    background-image: url("{{url_for('static', filename='img/button1-removebg-preview.png')}}");
+    background-image: url("/static/img/button1-removebg-preview.png");
     background-size: cover;
     background-color: transparent;
     background-position: top 50% right 100%;
