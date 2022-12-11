@@ -3,9 +3,7 @@ from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
 
-
 app = Flask(__name__)
-
 
 app.secret_key = 'xyzsdfg'
 
@@ -17,6 +15,13 @@ app.config['MYSQL_DB'] = 'user-system'
 mysql = MySQL(app)
 
 @app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/index1')
+def index1():
+    return render_template('index1.html')
+
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
@@ -44,11 +49,11 @@ def logout():
     session.pop('email', None)
     return redirect(url_for('login'))
 
-@app.route('/register', methods =['POST'])
+@app.route('/register', methods =['GET', 'POST'])
 def register():
     mesage = ''
     if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form :
-        user_name = request.form['name']
+        userName = request.form['name']
         password = request.form['password']
         email = request.form['email']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -58,10 +63,10 @@ def register():
             mesage = 'Account already exists !'
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
             mesage = 'Invalid email address !'
-        elif not user_name or not password or not email:
+        elif not userName or not password or not email:
             mesage = 'Please fill out the form !'
         else:
-            cursor.execute('INSERT INTO user VALUES (NULL, % s, % s, % s)', (user_name, email, password, ))
+            cursor.execute('INSERT INTO user VALUES (NULL, % s, % s, % s)', (userName, email, password, ))
             mysql.connection.commit()
             mesage = 'You have successfully registered !'
     elif request.method == 'POST':
