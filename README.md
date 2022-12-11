@@ -28,7 +28,14 @@ Output ของโปรเจคต์ - ได้เว็บไซต์ส�
 - ออกแบบ UI
 
 อ้างอิง (Link)
-https://www.facebook.com/marketplace/
-https://www.w3schools.com/w3css/w3css_templates.asp
-https://templatemo.com/
-https://pypi.org/project/db.py/
+
+ตัวอย่างเว็บเพจ - https://www.facebook.com/marketplace/
+
+ตัวอย่าง template - https://www.w3schools.com/w3css/w3css_templates.asp
+                - https://templatemo.com/
+
+คำสั่งในการติดตั้งตัว Flask - https://pypi.org/project/Flask/
+
+วิธีใช้ Flask Pyhton - https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3
+
+วิธีใช้ Mysql - https://www.w3schools.com/php/php_mysql_create_table.asp
