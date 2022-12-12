@@ -26,6 +26,10 @@ def shopping_home():
 def index1():
     return render_template('index1.html')
 
+@app.route('/user')
+def user():
+    return render_template('user.html')
+
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
@@ -51,7 +55,7 @@ def logout():
     session.pop('loggedin', None)
     session.pop('userid', None)
     session.pop('email', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 @app.route('/register', methods =['GET', 'POST'])
 def register():

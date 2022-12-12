@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for ('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='CSS/style.css') }}" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" \
 integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
                 <li><a href="#shopping"><i class="fas fa-shopping-basket"></i> Shopping</a></li>
                 <li><a href="#footer"><i class="fa fa-address-book"></i> Contact Us</a></li>
                 <!-- <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li> -->
-                <li><a href="./login"><i class="fa fa-user" aria-hidden="true"></i> <strong>{{session.name}}</a></li>
+                <li><a href="./user"><i class="fa fa-user" aria-hidden="true"></i> <strong>{{session.name}}</a></li>
         </div>
     </section>
     <section class="middle">
