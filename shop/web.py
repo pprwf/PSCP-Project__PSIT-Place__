@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from shop import db
+
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///psit.db"
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
+
 
 @app.route('/')
 def index():
