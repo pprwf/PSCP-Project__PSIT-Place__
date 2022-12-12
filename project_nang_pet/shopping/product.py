@@ -88,9 +88,9 @@ def delete_product(code):
 		all_total_price = 0
 		all_total_quantity = 0
 		session.modified = True
-
+		
 		for item in session['cart_item'].items():
-			if item[0] == code:
+			if item[0] == code:				
 				session['cart_item'].pop(item[0], None)
 				if 'cart_item' in session:
 					for key, value in session['cart_item'].items():

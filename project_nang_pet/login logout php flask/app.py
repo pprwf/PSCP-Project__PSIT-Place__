@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 app.secret_key = 'xyzsdfg'
 
-app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_HOST'] = '182.54.238.164'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'user-system'
+app.config['MYSQL_DB'] = 'user_system'
 
 mysql = MySQL(app)
 
@@ -84,3 +84,14 @@ def register():
 
 if __name__ == "__main__":
     app.run()
+
+# @app.route('/brands')
+# def brands():
+#     brands = Brand.query.order_by(Brand.id.desc()).all()
+#     return render_template('admin/brand.html', title='brands',brands=brands)
+
+
+# @app.route('/categories')
+# def categories():
+#     categories = Category.query.order_by(Category.id.desc()).all()
+#     return render_template('admin/brand.html', title='categories',categories=categorie
