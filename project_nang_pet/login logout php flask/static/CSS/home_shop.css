@@ -1,5 +1,5 @@
 body{
-    background-color: #98aeff;
+    background-image: linear-gradient(#98aeff, white);
 }
 #head h1{
     color: #1a1a1a;
@@ -13,6 +13,12 @@ body{
 
 #product{
     text-align: center;
+}
+
+#product .all-pro{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
 }
 #product .pro{
     width: 23%;
@@ -33,3 +39,27 @@ body{
 #product .pro:hover{
     box-shadow: 20px 20px 30px rgba(255, 255, 255, 0.06);
 }
+#product .pro .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#product .pro .des span{
+    color: black;
+    font-size: 16px;
+}
+#product .pro .des h5{
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 18px;
+}
+#product .pro .cart{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    color: black;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+
