@@ -1,0 +1,226 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+
+/* header eiei */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 30px;
+    background-color: #98aeff;
+    box-shadow: 0 5px 10px rgb(0,0,0,0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+.header img:hover{
+    transform: scale(1.1);
+    transition: transform 200ms ease-in-out;
+    z-index: 999;
+}
+.bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bar li{
+    list-style: none;
+    padding: 0 15px;
+    position: relative;
+}
+.bar li a{
+    text-decoration: none;
+    font-size : 16px;
+    font-weight: 300;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+    font-family:Prompt;
+}
+.bar li i{
+    margin-right: 5px;
+}
+.bar li a:hover,
+.bar li a.active{
+    color: aliceblue;
+}
+
+.bar li a.active::after,
+.bar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background:aliceblue;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+/*body eiei*/
+.middle{
+    background-image: url("static/img/background.jpg.png");
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top 25% right 70;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.middle div{
+    margin: 0 80px;
+
+}
+.middle div h1{
+    padding-bottom: 15px;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 3px 3px rgb(150, 194, 220)
+}
+.middle div h4,
+.middle div h2{
+    color: rgb(0, 35, 152);
+    font-family:Prompt;
+}
+.middle div span{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+}
+.middle div span img{
+    padding-right: 20px;
+}
+.middle div span h4{
+    font-family: Kanit;
+    color: black;
+}
+.middle div button{
+    background-image: url("static/img/button1-removebg-preview.png");
+    background-size: cover;
+    background-color: transparent;
+    background-position: top 50% right 100%;
+    color: antiquewhite;
+    border: 0;
+    padding: 14px 80px 14px 80px;
+}
+.middle div button a{
+    text-decoration: solid;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Kanit;
+    color: azure;
+}
+
+/*feature.*/
+#feature{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#feature .box1{
+    width: 180px;
+    text-align: center;
+    padding: 25px 40px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0,0.03);
+    border: 1px solid #98aeff;
+    border-radius: 6px;
+    margin: 15px 0;
+    font-family:Prompt;
+}
+#feature .box1 img{
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#feature .box1:hover{
+    box-shadow: 10px 10px 54px rgba(12, 129, 255, 0.15);
+}
+
+#feature .box1 h6{
+    padding: 9px 8px 6px 9px;
+    line-height: 1;
+    border-radius: 4px;
+    color: rgb(0, 94, 255);
+    background-color: bisque;
+    box-shadow: 10px 10px 54px rgba(255, 142, 37, 0.1);
+}
+
+#feature .box1:nth-child(2) h6{
+    background-color: azure;
+}
+/*shopping*/
+#shopping{
+    text-align: center;
+    background-color: #98aeff;
+
+}
+#shopping h1{
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-family: Prompt;
+    text-shadow: 3px 3px rgb(255, 255, 255);
+}
+#shopping p{
+    font-family: Prompt;
+    font-size: 20px;
+}
+#shopping hr.new-lines{
+    border-top: 5px solid rgb(255, 197, 131);
+    border-radius: 5px;
+}
+#shopping .pro-contain{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+#shopping .pro{
+    width: 23%;
+    min-width: 200px;
+    min-height: 200px;
+    padding: 10px 12px;
+    border: 5px solid rgb(0, 27, 148);
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0,0.03);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+#shopping .pro:hover{
+    box-shadow: 20px 20px 30px rgba(255, 255, 255, 0.06);
+}
+#shopping .pro img{
+    width: 200px;
+}
+#shopping .pro .des{
+    text-align: center;
+    padding: 10px 0;
+}
+#shopping .pro .des span{
+    padding-bottom: 7px;
+    color: #1a1a1a;
+    font-size: 18px;
+}
+#shopping .pro .des h5{
+    color: #606063;
+    font-size: 12px;
+}
+#shopping .pro a{
+    text-decoration: none;
+}

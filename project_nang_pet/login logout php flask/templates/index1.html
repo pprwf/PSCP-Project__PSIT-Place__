@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='CSS/style.css') }}" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" \
+integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Prompt:wght@500&display=swafamily=Prompt:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <section class="header">
+        <a href="./index1"><img src="{{url_for('static', filename='img/logoresult.png')}}" alt="logo1" width="200px"></a>
+        <div>
+            <ul class="bar">
+                <!-- <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li> -->
+                <li><a href="#shopping"><i class="fas fa-shopping-basket"></i> Shopping</a></li>
+                <li><a href="#footer"><i class="fa fa-address-book"></i> Contact Us</a></li>
+                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                <li><a href="./user"><i class="fa fa-user" aria-hidden="true"></i> <strong>{{session.name}}</a></li>
+        </div>
+    </section>
+    <section class="middle">
+        <div>
+        <h1>Welcome to PSIT PLACE~~~</h1>
+        <h2>ตลาดนัดสำหรับชาว IT!!</h2>
+        <h4>ที่จะรวมสินค้าเกี่ยวกับ IT ไว้มากมาย ณ ที่แห่งนี้สำหรับนักศึกษา</h4>
+        <span>
+            <a href="https://www.kmitl.ac.th/"><img src="static/img/Seal_of_King_Mongkut's_Institute_of_Technology_Ladkrabang.svg.png" alt="สจล" width="100"></a>
+            <h4>สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h4>
+        </span>
+        <button type="button"><a href="">Click Me!</a></button>
+        </div>
+    </section>
+    <section id ="feature" class="section-p1">
+        <div class="box1">
+            <img src="static/img/download.png" alt="">
+            <h6>สามารถติดต่อกันได้แบบ<br>ตัวต่อตัว</h6>
+        </div>
+        <div class="box1">
+            <img src="static/img/trade-bridge.jpg" alt="">
+            <h6>สามารถแลกเปลี่ยนของ<br>ตัวต่อตัว</h6>
+        </div>
+    </section>
+    <section id="shopping" class="section-p1">
+        <h1 style="margin-top: 150px;">Categories</h1><hr class="new-lines">
+        <p>รวมสินค้าทั้งหมด</p>
+        <div class="pro-contain">
+        <div class="pro"><a href="./shopping_home">
+            <img src="static/img/categories/0000909_computer-mobile-phones_300.jpeg" alt="">
+            <div class="des">
+                <span>All Categories</span>
+                <h5>สินค้าทั้งหมด</h5>
+            </div>
+        </a></div>
+        <div class="pro"><a href="#">
+            <img src="static/img/categories/7a7ae03cd8368d39751d0f7831868e09.jfif" alt="">
+            <div class="des">
+                <span>Gaming Gear</span>
+                <h5>เกมมิ่ง เกียร์</h5>
+            </div>
+        </a></div>
+        <div class="pro"><a href="#">
+            <img src="static/img/categories/32745-9-gaming-computer-transparent.png" alt="">
+            <div class="des">
+                <span>About Computer</span>
+                <h5>อุปกรณ์คอมพิวเตอร์</h5>
+            </div>
+        </a></div>
+        <div class="pro"><a href="#">
+            <img src="/static/img/categories/ลำโพงและเครื่องเสียง.png" alt="">
+            <div class="des">
+                <span>Speakers and Electroacoustics</span>
+                <h5>ลำโพงและเครื่องเสียง</h5>
+            </div>
+        </a></div>
+        <div class="pro"><a href="#">
+            <img src="static/img/categories/7a7ae03cd8368d39751d0f7831868e09.jfif" alt="">
+            <div class="des">
+                <span>Gaming Gear</span>
+                <h5>เกมมิ่ง เกียร์</h5>
+            </div>
+        </a></div>
+    </div>
+    </section>
+
+    <footer class="section-p1" id="footer">
+        <div class="col">
+            <h4>Contact</h4>
+            <span><strong>Hours:</strong> 11.00-24.00</span>
+            <p>From PSCP Project first time ถ้าผิดพลาดประการใด ขออภัยมา ณ ที่นี่ด้วย</p>
+            <h3>คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h3>
+        </div>
+        <div class="log">
+            <h1>P</h1>
+            <h1>S</h1>
+            <h1>C</h1>
+            <h1>P</h1>
+        </div>
+    </footer>
+</body>
+</html>
