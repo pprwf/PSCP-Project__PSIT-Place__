@@ -17,9 +17,10 @@ body{
 
 #product .all-pro{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 10px;
     padding-bottom: 10px;
+    flex-wrap: wrap;
 }
 #product .pro{
     width: 23%;

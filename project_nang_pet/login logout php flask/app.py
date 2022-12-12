@@ -82,16 +82,20 @@ def register():
         mesage = 'Please fill out the form !'
     return render_template('register.html', mesage = mesage)
 
+# @app.route('/favorite', methods =['GET', 'POST'])
+# def favorite():
+#     mesage = ''
+#     if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form :
+#         proDuctid = request.form['productid']
+#         nameproduct = request.form['name']
+#         priceproduct = request.form['price']
+#         conTact = request.form['contact']
+#         imageproduct = request.form['img']
+#         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#         cursor.execute('INSERT INTO user VALUES (NOT NULL, % s, % s, % s)', (userName, email, , ))
+#         account = cursor.fetchone()
+#         mesage = 'Account already exists !'
+#     return render_template('favorite.html', mesage = mesage)
+
 if __name__ == "__main__":
     app.run()
-
-# @app.route('/brands')
-# def brands():
-#     brands = Brand.query.order_by(Brand.id.desc()).all()
-#     return render_template('admin/brand.html', title='brands',brands=brands)
-
-
-# @app.route('/categories')
-# def categories():
-#     categories = Category.query.order_by(Category.id.desc()).all()
-#     return render_template('admin/brand.html', title='categories',categories=categorie
