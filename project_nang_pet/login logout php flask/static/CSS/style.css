@@ -129,6 +129,7 @@ h6{
 
 /*feature.*/
 #feature{
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -248,5 +249,5 @@ footer .log h1{
     flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: column;
-    box-shadow: 10px 10px 54px rgba(255, 142, 37, 0.1);
+    text-shadow: 10px 10px 54px rgba(255, 142, 37, 0.1);
 }
