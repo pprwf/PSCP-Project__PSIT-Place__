@@ -22,7 +22,7 @@ def index():
 def shopping_home():
     return render_template('shopping_home.html')
 
-@app.route('/index1')
+@app.route('/home')
 def index1():
     return render_template('index1.html')
 
@@ -88,10 +88,10 @@ def seller():
     if request.method == 'POST' and 'name' in request.form and 'price' in request.form and 'contact' in request.form\
     and 'img' in request.form:
         proDuctid = request.form['productid']
-        nameproduct = request.form['name']
+        nameproduct = request.form['productname']
         priceproduct = request.form['price']
         conTact = request.form['contact']
-        imageproduct = request.form['img']
+        imageproduct = request.form['img-url']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM inventory', )
         product = cursor.fetchone()
@@ -106,7 +106,7 @@ def seller():
             mesage = 'You have successfully selling your product !'
     elif request.method == 'POST':
         mesage = 'Please fill out the form !'
-    return render_template('sell.html', mesage = mesage)
+    return render_template('seller.html', mesage = mesage)
 
 # @app.route('/test', methods = ['GET'])
 # def test():
