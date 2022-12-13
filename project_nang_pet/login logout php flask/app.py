@@ -75,7 +75,11 @@ def router():
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
-    return render_template('shopping_home.html')
+    query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    query.execute('SELECT * FROM inventory')
+    result = query.fetchall()
+    
+    return render_template('shopping_home.html', products = result)
 
 @app.route('/shopping_1')
 def shopping_1():
@@ -176,12 +180,13 @@ def seller():
 #     noti = 'Please fill out the form !'
     return render_template('seller.html', mesage = noti)
 
-# @app.route('/test', methods = ['GET'])
-# def test():
-#     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-#     query.execute("SELECT * FROM inventory")
-#     result = query.fetchall()
-#     return render_template('test.html', mesage = result)
+@app.route('/test', methods = ['GET'])
+def test():
+    idx = request.args.get('productId')
+    query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    query.execute('SELECT * FROM inventory WHERE productId = %s', (idx))
+    result = query.fetchone()
+    return render_template('test.html', mesage = result)
 
 if __name__ == "__main__":
     app.run()
