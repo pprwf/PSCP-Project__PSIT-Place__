@@ -21,7 +21,7 @@ body{
     border: 5px solid burlywood;
     box-shadow: 20px 20px 30px rgba(255, 255, 255, 0.06);
     position: relative;
-    left: 800px;
+    text-align: center;
     font-size: 30px;
     font-weight: bold;
     font-family: Kanit;
