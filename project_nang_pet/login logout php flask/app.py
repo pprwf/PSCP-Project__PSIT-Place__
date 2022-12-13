@@ -39,6 +39,14 @@ def cpu():
 def Tv():
     return render_template('Tv.html')
 
+@app.route('/nootebook')
+def nootebook():
+    return render_template('nootebook.html')
+
+@app.route('/Apple')
+def Apple():
+    return render_template('Apple.html')
+
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
