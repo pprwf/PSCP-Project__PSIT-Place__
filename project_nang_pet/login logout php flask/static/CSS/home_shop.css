@@ -34,6 +34,9 @@ body{
     transition: 0.2s ease;
     position: relative;
 }
+#product .pro a{
+    text-decoration: none;
+}
 #product .pro img{
     width: 100%;
     border-radius: 20px;
