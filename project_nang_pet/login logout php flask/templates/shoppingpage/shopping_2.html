@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='CSS/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='CSS/home_shopping.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" \
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Prompt:wght@500&display=swafamily=Prompt:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" type="png" href="{{url_for('static', filename='img/logoresult.png')}}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="header">
+        <a href="./index1"><img src="{{url_for('static', filename='img/logoresult.png')}}" alt="logo1" width="200px"></a>
+        <div>
+            <ul class="bar">
+                <!-- <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li> -->
+                <li><a href="#shopping"><i class="fas fa-shopping-basket"></i> Shopping</a></li>
+                <li><a href="#footer"><i class="fa fa-address-book"></i> Contact Us</a></li>
+                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                <!-- <li><a href="./login"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li> -->
+        </div>
+    </section>
+    <section id="head">
+        <h1>About Computer</h1>
+        <p>อุปกรณ์คอมพิวเตอร์</p><hr>
+    </section>
+    <section class="button"><a href="./selling"><button type="button">เพิ่มสินค้าด้วยตนเอง</button></a></section>
+    <section id="product">
+        <div class="all-pro">
+        <div class="pro"><a href="#">
+            <img src="{{ url_for ('static', filename='img/categories/all_cat/2022032109464852179_1.jpg') }}" alt="">
+            <div class="des">
+                <span>CPU</span>
+                <h5>CPU AIR COOLER (พัดลมซีพียู) ID COOLING SE-224-XTS ARGB</h5>
+                <h4>฿990</h4>
+            </div>
+            <i class="fa fa-heart" aria-hidden="true"></i></a>
+        </div>
+        <div class="pro"><a href="#">
+            <img src="{{ url_for ('static', filename='img/categories/62846993N665e3e59.png!q70.png') }}" alt="">
+            <div class="des">
+                <span>RAM</span>
+                <h5>32GB (16GBx2) DDR5 6200MHz RAM (หน่วยความจำ) CORSAIR VENGEANCE RGB DDR5 (BLACK) (CMH32GX5M2B6200C36)</h5>
+                <h4>฿13,900</h4>
+            </div>
+            <i class="fa fa-heart" aria-hidden="true"></i></a>
+        </div>
+        </div>
+    </section>
+    <footer class="section-p1" id="footer">
+        <div class="col">
+            <h4>Contact</h4>
+            <span><strong>Hours:</strong> 11.00-24.00</span>
+            <p>From PSCP Project first time ถ้าผิดพลาดประการใด ขออภัยมา ณ ที่นี่ด้วย</p>
+            <h3>คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h3>
+        </div>
+        <div class="log">
+            <h1>P</h1>
+            <h1>S</h1>
+            <h1>C</h1>
+            <h1>P</h1>
+        </div>
+    </footer>
+</body>
+</html>
