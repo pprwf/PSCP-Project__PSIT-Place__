@@ -47,6 +47,18 @@ def nootebook():
 def Apple():
     return render_template('Apple.html')
 
+@app.route('/speaker_1')
+def speaker_1():
+    return render_template('speaker_1.html')
+
+@app.route('/speaker_2')
+def speaker_2():
+    return render_template('speaker_2.html')
+
+@app.route('/ram')
+def ram():
+    return render_template('ram.html')
+
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
