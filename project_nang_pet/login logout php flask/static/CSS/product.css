@@ -58,6 +58,17 @@ body {
         cursor: pointer;
         transform: scale(0.95);}
 .contact-btn:active {transform: scale(0.9);}
+.green-dot {
+        background: #00d889;
+        width: 16px;
+        height: 16px;
+        border-radius: 99px;
+        margin-left: 220px;
+        margin-top: 22px;}
+.stocks {
+        margin-top: -16px;
+        margin-left: 242px;
+        font-size: 12px;}
 .fav-btn {
         transition: .3s ease;
         margin-left: 220px;
