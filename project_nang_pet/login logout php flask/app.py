@@ -35,6 +35,10 @@ def console():
 def cpu():
     return render_template('cpu.html')
 
+@app.route('/Tv')
+def Tv():
+    return render_template('Tv.html')
+
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
