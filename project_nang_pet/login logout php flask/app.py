@@ -72,6 +72,14 @@ def router():
     return render_template('router.html')
 
 
+@app.route('/product/')
+def product():
+    idx = request.args.get('productId')
+    query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    query.execute('SELECT * FROM inventory WHERE productId = ' + idx + ' ;')
+    result = query.fetchone()
+    return render_template('product.html', item = result)
+
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
@@ -189,4 +197,4 @@ def test():
     return render_template('test.html', mesage = result)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
