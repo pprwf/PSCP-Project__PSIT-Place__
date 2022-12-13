@@ -47,6 +47,14 @@ def nootebook():
 def Apple():
     return render_template('Apple.html')
 
+@app.route('/mousehy')
+def mousehy():
+    return render_template('mousehy.html')
+
+@app.route('/mouseoni')
+def mouseoni():
+    return render_template('mouseoni.html')
+
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
