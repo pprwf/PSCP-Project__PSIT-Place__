@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='CSS/home_shopping.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" \
     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <!-- <link rel="stylesheet" href="/project_nang_pet/login logout php flask/static/CSS/home_shop.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Prompt:wght@500&display=swafamily=Prompt:wght@300&display=swap" rel="stylesheet">
@@ -15,11 +16,11 @@
 </head>
 <body>
     <section class="header">
-        <a href="index.html"><img src="{{url_for('static', filename='img/logoresult.png')}}" alt="logo1" width="200px"></a>
+        <a href="./index1"><img src="{{url_for('static', filename='img/logoresult.png')}}" alt="logo1" width="200px"></a>
         <div>
             <ul class="bar">
                 <!-- <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li> -->
-                <li><a href="#shopping"><i class="fas fa-shopping-basket"></i> Shopping</a></li>
+                <li><a href="#head"><i class="fas fa-shopping-basket"></i> Shopping</a></li>
                 <li><a href="#footer"><i class="fa fa-address-book"></i> Contact Us</a></li>
                 <!-- <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li> -->
                 <li><a href="./login"><i class="fa fa-user" aria-hidden="true"></i> Login</a></li>
@@ -29,11 +30,11 @@
         <h1>Speakers and Electroacoustics</h1>
         <p>ลำโพงและเครื่องเสียง</p><hr>
         </section>
-        <section class="button"><a href="./selling"><button type="button">เพิ่มสินค้าด้วยตนเอง</button></a></section>
+        <center><section class="button"><a href="./selling"><button type="button">เพิ่มสินค้าด้วยตนเอง</button></a></section></center>
         <section id="product">
             <div class="all-pro">
             <div class="pro"><a href="#">
-                <img src="{{ url_for ('static', filename='img/categories/all_cat/JBL-Flip-6-Black-1-square_medium.jpg') }}" alt="">
+                <img src="{{ url_for ('static', filename='img/categories/all_cat/JBL-Flip-6-Black-1.jpg') }}" alt="">
                 <div class="des">
                     <span>SPEAKER</span>
                     <h5>ลำโพงบลูทูธ JBL Flip 6 Black</h5>
@@ -42,7 +43,7 @@
                 <i class="fa fa-heart" aria-hidden="true"></i></a>
             </div>
             <div class="pro"><a href="#">
-                <img src="{{ url_for ('static', filename='img/categories/all_cat/JBL-Bluetooth-Speaker-Light-Effects-Party-Box-110-Black-1-square_medium.jpg) }}" alt="">
+                <img src="{{ url_for ('static', filename='img/categories/all_cat/JBL-Bluetooth.jpg') }}" alt="">
                 <div class="des">
                     <span>SPEAKER</span>
                     <h5>ลำโพง JBL Light Effects Party Box 110 Black</h5>
