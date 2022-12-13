@@ -18,11 +18,19 @@ mysql = MySQL(app)
 def index():
     return render_template('index.html')
 
+@app.route('/keyboard')
+def keyboard():
+    return render_template('keyboard.html')
+
+@app.route('/console')
+def console():
+    return render_template('console.html')
+
 @app.route('/shopping_home')
 def shopping_home():
     return render_template('shopping_home.html')
 
-@app.route('/home')
+@app.route('/index1')
 def index1():
     return render_template('index1.html')
 
