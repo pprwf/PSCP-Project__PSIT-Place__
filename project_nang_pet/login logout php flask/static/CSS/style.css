@@ -82,9 +82,8 @@ h6{
 .middle{
     background-image: url("/static/img/background.jpg.png");
     overflow: hidden;
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
+    height: 90vh;
+    width: auto;
     background-position: top 25% right 70;
     display: flex;
     flex-direction: column;
