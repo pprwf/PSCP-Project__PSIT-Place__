@@ -82,16 +82,38 @@ def register():
         mesage = 'Please fill out the form !'
     return render_template('register.html', mesage = mesage)
 
+@app.route('/selling', methods =['GET', 'POST'])
+def seller():
+    mesage = ''
+    if request.method == 'POST' and 'name' in request.form and 'price' in request.form and 'contact' in request.form\
+    and 'img' in request.form:
+        proDuctid = request.form['productid']
+        nameproduct = request.form['name']
+        priceproduct = request.form['price']
+        conTact = request.form['contact']
+        imageproduct = request.form['img']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM inventory', )
+        product = cursor.fetchone()
+        if product:
+            mesage = 'Product already exists !'
+        elif not nameproduct or not priceproduct or not conTact or not imageproduct:
+            mesage = 'Please fill out the form !'
+        else:
+            cursor.execute('INSERT INTO inventory VALUES (NOT NULL, % s, % s, % s, % s)', (proDuctid, nameproduct, priceproduct,
+                                                                                           conTact, imageproduct, ))
+            mysql.connection.commit()
+            mesage = 'You have successfully selling your product !'
+    elif request.method == 'POST':
+        mesage = 'Please fill out the form !'
+    return render_template('sell.html', mesage = mesage)
+
+# @app.route('/test', methods = ['GET'])
+# def test():
+#     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+#     query.execute("SELECT * FROM inventory")
+#     result = query.fetchall()
+#     return render_template('test.html', mesage = result)
+
 if __name__ == "__main__":
     app.run()
-
-# @app.route('/brands')
-# def brands():
-#     brands = Brand.query.order_by(Brand.id.desc()).all()
-#     return render_template('admin/brand.html', title='brands',brands=brands)
-
-
-# @app.route('/categories')
-# def categories():
-#     categories = Category.query.order_by(Category.id.desc()).all()
-#     return render_template('admin/brand.html', title='categories',categories=categorie
