@@ -14,10 +14,15 @@ app.config['MYSQL_DB'] = 'user_system'
 
 mysql = MySQL(app)
 
+# หน้าเว็บ #
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/index1')
+def index1():
+    return render_template('index1.html')
+# หน้าสินค้า #
 @app.route('/keyboard')
 def keyboard():
     return render_template('keyboard.html')
@@ -26,14 +31,28 @@ def keyboard():
 def console():
     return render_template('console.html')
 
+# หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
     return render_template('shopping_home.html')
 
-@app.route('/index1')
-def index1():
-    return render_template('index1.html')
+@app.route('/shopping_1')
+def shopping_1():
+    return render_template('shopping_1.html')
 
+@app.route('/shopping_2')
+def shopping_2():
+    return render_template('shopping_2.html')
+
+@app.route('/shopping_3')
+def shopping_3():
+    return render_template('shopping_3.html')
+
+@app.route('/shopping_4')
+def shopping_4():
+    return render_template('shopping_4.html')
+
+# หน้า user/login #
 @app.route('/user')
 def user():
     return render_template('user.html')
@@ -90,13 +109,14 @@ def register():
         mesage = 'Please fill out the form !'
     return render_template('register.html', mesage = mesage)
 
+# หน้าขาย #
 @app.route('/selling', methods =['GET', 'POST'])
 def seller():
     mesage = ''
     if request.method == 'POST' and 'name' in request.form and 'price' in request.form and 'contact' in request.form\
     and 'img' in request.form:
         proDuctid = request.form['productid']
-        nameproduct = request.form['productname']
+        nameproduct = request.form['name']
         priceproduct = request.form['price']
         conTact = request.form['contact']
         imageproduct = request.form['img-url']
@@ -112,8 +132,8 @@ def seller():
                                                                                            conTact, imageproduct, ))
             mysql.connection.commit()
             mesage = 'You have successfully selling your product !'
-    elif request.method == 'POST':
-        mesage = 'Please fill out the form !'
+    # elif request.method == 'POST':
+    #     mesage = 'Please fill out the form !'
     return render_template('seller.html', mesage = mesage)
 
 # @app.route('/test', methods = ['GET'])
