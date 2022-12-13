@@ -139,12 +139,28 @@ def seller():
 #     noti = 'Please fill out the form !'
     return render_template('seller.html', mesage = noti)
 
-# @app.route('/test', methods = ['GET'])
+@app.route('/test', methods = ['POST', 'GET'])
 # def test():
 #     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
 #     query.execute("SELECT * FROM inventory")
 #     result = query.fetchall()
-#     return render_template('test.html', mesage = result)
+#     return render_template('test.html', )
+def store():
+    if request.method == "POST" and 'name' in request.form and 'price' in request.form and 'contact' in request.form\
+    and 'img' in request.form:
+        prodid = request.form["productid"]
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM inventory WHERE productid = %d', (prodid))
+        prod = cursor.fetchone()
+        if prod:
+            session['loggedin'] = True
+            session['prodname'] = prod['name']
+            session['cost'] = prod['price']
+            session['cnt'] = prod['contact']
+            session['image'] = prod['img']
+        else:
+            mesage = 'Please enter correct email / password !'
+        return render_template('product.html')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
