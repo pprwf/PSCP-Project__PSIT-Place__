@@ -31,6 +31,10 @@ def keyboard():
 def console():
     return render_template('console.html')
 
+@app.route('/cpu')
+def cpu():
+    return render_template('cpu.html')
+
 # หน้า shopping #
 @app.route('/shopping_home')
 def shopping_home():
