@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Selling Form</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+	<h2>Product Selling</h2>
+	<form action="{{ url_for('selling') }}" method="post">
+        {% if mesage is defined and mesage %}
+			<div class="alert alert-warning">{{ mesage }}</div>
+		{% endif %}
+		<div class="form-group">
+			<label for="prdname">Product Name:</label>
+			<input type="text" class="form-control" id="productname" name="productname" placeholder="Enter product name" 
+            name="prdname">
+		</div>
+		<div class="form-group">
+			<label for="price">Price:</label>
+			<input type="number" class="form-control" id="number" name="number" placeholder="Enter your price" name="price">
+		</div>
+		<div class="form-group">
+			<label for="contact">Contact Link:</label>
+			<input type="url" class="form-control" id="url" name="url" placeholder="Enter your contact link" name="contact">
+		</div>
+        <div class="form-group">
+			<label for="img-url">Image URL:</label>
+			<input type="url" class="form-control" id="url" name="url" placeholder="Enter your image url" name="img-url">
+		</div>
+		<button type="submit" class="btn btn-primary">Sell !</button>
+	</form>
+</div>
+</body>
+</html>
