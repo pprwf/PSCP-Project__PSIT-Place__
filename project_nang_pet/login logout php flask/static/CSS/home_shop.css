@@ -43,7 +43,7 @@ body{
     padding-bottom: 10px;
     flex-wrap: wrap;
 }
-#product .pro{
+#product .all-pro .pro{
     width: 23%;
     min-width: 250px;
     padding: 10px 12px;
@@ -54,6 +54,7 @@ body{
     background-color: rgb(255, 255, 255);
     transition: 0.2s ease;
     position: relative;
+    padding-bottom: 10px;
 }
 #product .pro a{
     text-decoration: none;
