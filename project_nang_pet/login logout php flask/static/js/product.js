@@ -1,6 +1,6 @@
-function showImgPreview() {
+function showImgPreview(url_link) {
     $(".preview-container").show();
-    $("#prev-img").attr("src", "https://www.jib.co.th/img_master/product/original/20220316131926_52116_66_1.jpg")}
+    $("#prev-img").attr("src", "url_link")}
 
 function hidePreview() {$(".preview-container").hide();}
 
