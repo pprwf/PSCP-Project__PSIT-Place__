@@ -1,6 +1,6 @@
 function showImgPreview(url_link) {
     $(".preview-container").show();
-    $("#prev-img").attr("src", "url_link")}
+    $("#prev-img").attr("src", url_link)}
 
 function hidePreview() {$(".preview-container").hide();}
 
