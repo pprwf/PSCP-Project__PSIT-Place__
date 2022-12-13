@@ -112,29 +112,28 @@ def register():
 # หน้าขาย #
 @app.route('/selling', methods =['GET', 'POST'])
 def seller():
-    mesage = ''
+    noti = ''
     if request.method == 'POST' and 'name' in request.form and 'price' in request.form and 'contact' in request.form\
     and 'img' in request.form:
-        proDuctid = request.form['productid']
         nameproduct = request.form['name']
         priceproduct = request.form['price']
         conTact = request.form['contact']
-        imageproduct = request.form['img-url']
+        imageproduct = request.form['img']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM inventory', )
+        cursor.execute('SELECT * FROM inventory WHERE name = "name"' )
         product = cursor.fetchone()
         if product:
-            mesage = 'Product already exists !'
+            noti = 'Product already exists !'
         elif not nameproduct or not priceproduct or not conTact or not imageproduct:
-            mesage = 'Please fill out the form !'
+            noti = 'Please fill out the form !'
         else:
-            cursor.execute('INSERT INTO inventory VALUES (NOT NULL, % s, % s, % s, % s)', (proDuctid, nameproduct, priceproduct,
+            cursor.execute('INSERT INTO inventory VALUES (NULL, % s, % s, % s, % s)', (nameproduct, priceproduct,
                                                                                            conTact, imageproduct, ))
             mysql.connection.commit()
-            mesage = 'You have successfully selling your product !'
-    # elif request.method == 'POST':
-    #     mesage = 'Please fill out the form !'
-    return render_template('seller.html', mesage = mesage)
+            noti = 'You have successfully selling your product !'
+# elif request.method == 'POST':
+#     noti = 'Please fill out the form !'
+    return render_template('seller.html', mesage = noti)
 
 # @app.route('/test', methods = ['GET'])
 # def test():
