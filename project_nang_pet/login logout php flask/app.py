@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
+import mysql.connector
 import re
 
 app = Flask(__name__)
@@ -71,22 +72,27 @@ def mouseoni():
 def router():
     return render_template('router.html')
 
+@app.route("/test_kuy/<string:id>")
+def test_kuy(id):
+    print(id)
+    return render_template("index.html")
 
-@app.route('/product/')
-def product():
-    idx = request.args.get('productId')
+
+@app.route('/product/<string:item_id>')
+def product(item_id):
+    print(item_id)
     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    query.execute('SELECT * FROM inventory WHERE productId = ' + idx + ' ;')
-    result = query.fetchone()
-    return render_template('product.html', item = result)
+    query.execute("SELECT * FROM inventory WHERE productid =  {}".format(item_id))
+    result = query.fetchall()
+    return render_template('product.html', item = result[0], itemname = item_id)
 
-# หน้า shopping #
+# หน้า shopping #8
 @app.route('/shopping_home')
 def shopping_home():
     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     query.execute('SELECT * FROM inventory')
     result = query.fetchall()
-    
+    print("id =", result[0])
     return render_template('shopping_home.html', products = result)
 
 @app.route('/shopping_1')
@@ -192,7 +198,7 @@ def seller():
 def test():
     idx = request.args.get('productId')
     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    query.execute('SELECT * FROM inventory WHERE productId = %s', (idx))
+    query.execute('SELECT * FROM inventory WHERE productId = '+ idx + " ;")
     result = query.fetchone()
     return render_template('test.html', mesage = result)
 
