@@ -37,11 +37,12 @@
         <div class="all-pro">
                 {% for product in products: %}
                     <div class="pro">
-                        <a href="./product/{{product.id}}">
+                        <a href="./product">
                             <img src="{{ product.img }}" alt="">
                             <div class="des">
                                 <h5>{{product.name}}</h5>
                                 <h4>{{product.price}}</h4>
+                                <center><section class="button"><a href="{{ product.contact }}"><button type="button"><h5>ติดต่ออผู้ขาย</h5></button></a></section></center>
                             </div>
                             <i class="fa fa-heart" aria-hidden="true"></i>
                         </a>

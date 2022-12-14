@@ -71,7 +71,6 @@ def mouseoni():
 def router():
     return render_template('router.html')
 
-
 @app.route('/product/')
 def product():
     idx = request.args.get('productId')
@@ -86,7 +85,7 @@ def shopping_home():
     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     query.execute('SELECT * FROM inventory')
     result = query.fetchall()
-    
+
     return render_template('shopping_home.html', products = result)
 
 @app.route('/shopping_1')
@@ -154,6 +153,12 @@ def register():
             mesage = 'Invalid email address !'
         elif not userName or not password or not email:
             mesage = 'Please fill out the form !'
+        elif password == userName:
+            mesage = 'Please fill out the form !'
+        elif len(password) < 8:
+            mesage = 'Please fill you password more than 8 letters !'
+        elif password == ("@" or "$" or "%"):
+            mesage = 'Invalid Password !'
         else:
             cursor.execute('INSERT INTO user VALUES (NULL, % s, % s, % s)', (userName, email, password, ))
             mysql.connection.commit()
