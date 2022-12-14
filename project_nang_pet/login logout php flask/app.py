@@ -7,7 +7,6 @@ import re
 app = Flask(__name__)
 
 app.secret_key = 'xyzsdfg'
-
 app.config['MYSQL_HOST'] = '182.54.238.164'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
@@ -172,6 +171,10 @@ def register():
             mesage = 'Invalid email address !'
         elif not userName or not password or not email:
             mesage = 'Please fill out the form !'
+        elif password == userName:
+            mesage = 'Please fill out the form !'
+        elif len(password) < 8:
+            mesage = 'Please fill you password more than 8 letters !'
         else:
             cursor.execute('INSERT INTO user VALUES (NULL, % s, % s, % s)', (userName, email, password, ))
             mysql.connection.commit()
@@ -202,8 +205,6 @@ def seller():
                                                                                            conTact, imageproduct, ))
             mysql.connection.commit()
             noti = 'You have successfully selling your product !'
-# elif request.method == 'POST':
-#     noti = 'Please fill out the form !'
     return render_template('seller.html', mesage = noti)
 
 @app.route('/test', methods = ['GET'])
