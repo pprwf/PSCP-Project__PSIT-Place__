@@ -1,4 +1,27 @@
 @import "home_shop.css";
+@media (max-width:1024px) {
+    .bar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        height: 15vh;
+        width: 300px;
+        background-color: #98aeff;
+        box-shadow: 0 40px 60px rgba(0, 0, 0,0.01);
+        padding: 80px 0 0 10px;
+    }
+    .bar li{
+        margin-bottom: 25px;
+    }
+    #mobile{
+        display: flex;
+        align-items: center;
+    }
+}
 body{
     margin: 0;
     padding: 0;
@@ -263,3 +286,4 @@ footer .log h1{
     flex-direction: column;
     text-shadow: 10px 10px 54px rgba(255, 142, 37, 0.1);
 }
+
