@@ -20,9 +20,9 @@ def index():
     return render_template('index.html')
 
 # หน้าหลักเมื่อล็อคอินเข้าระบบสำเร็จ #
-@app.route('/home')
+@app.route('/index1')
 def index1():
-    return render_template('home.html')
+    return render_template('index1.html')
 
 # หน้าสินค้า #
 @app.route('/keyboard')
@@ -211,4 +211,4 @@ def seller():
     return render_template('seller.html', mesage = noti)
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(host="0.0.0.0", debug=False, port=8082)
