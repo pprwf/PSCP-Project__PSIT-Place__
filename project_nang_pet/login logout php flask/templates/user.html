@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 </head>
 <body>
+	<div class="bg-primary"></div>
 <div class="container">
 	<div class="row">
 		<h1>User Profile</h1>
@@ -17,11 +18,12 @@
 	</div>
 	<br><br>
 	<div class="row">
-
-		<h2>Welcome to the user profile page...</h2>
-		<br><br>
-        <a href="./index1"> Click here!</a>
+		<h2>Welcome to the {{session.name}} page...</h2>
 	</div>
+	<h5>Back to PSIT Place Homepage</h5><br>
+		<button type="button" class="btn btn-primary">
+			<a href="./home" class="text-white"> Click here! </a>
+		</button>
 </div>
 </body>
 </html>

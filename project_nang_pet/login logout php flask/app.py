@@ -7,7 +7,6 @@ import re
 app = Flask(__name__)
 
 app.secret_key = 'xyzsdfg'
-
 app.config['MYSQL_HOST'] = '182.54.238.164'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
@@ -15,69 +14,77 @@ app.config['MYSQL_DB'] = 'user_system'
 
 mysql = MySQL(app)
 
-# หน้าเว็บ #
+# หน้าหลักของเว็บไซต์ #
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/index1')
+# หน้าหลักเมื่อล็อคอินเข้าระบบสำเร็จ #
+@app.route('/home')
 def index1():
-    return render_template('index1.html')
+    return render_template('home.html')
+
 # หน้าสินค้า #
 @app.route('/keyboard')
 def keyboard():
     return render_template('keyboard.html')
 
+# หน้าสินค้า #
 @app.route('/console')
 def console():
     return render_template('console.html')
 
+# หน้าสินค้า #
 @app.route('/cpu')
 def cpu():
     return render_template('cpu.html')
 
+# หน้าสินค้า #
 @app.route('/Tv')
 def Tv():
     return render_template('Tv.html')
 
+# หน้าสินค้า #
 @app.route('/nootebook')
 def nootebook():
     return render_template('nootebook.html')
 
+# หน้าสินค้า #
 @app.route('/Apple')
 def Apple():
     return render_template('Apple.html')
 
+# หน้าสินค้า #
 @app.route('/speaker_1')
 def speaker_1():
     return render_template('speaker_1.html')
 
+# หน้าสินค้า #
 @app.route('/speaker_2')
 def speaker_2():
     return render_template('speaker_2.html')
 
+# หน้าสินค้า #
 @app.route('/ram')
 def ram():
     return render_template('ram.html')
 
+# หน้าสินค้า #
 @app.route('/mousehy')
 def mousehy():
     return render_template('mousehy.html')
 
+# หน้าสินค้า #
 @app.route('/mouseoni')
 def mouseoni():
     return render_template('mouseoni.html')
 
+# หน้าสินค้า #
 @app.route('/router')
 def router():
     return render_template('router.html')
 
-@app.route("/test_kuy/<string:id>")
-def test_kuy(id):
-    print(id)
-    return render_template("index.html")
-
-
+# หน้าแสดงรายละเอียดสินค้าที่เพิ่มสินค้าลง Database #
 @app.route('/product/<string:item_id>')
 def product(item_id):
     print(item_id)
@@ -86,7 +93,7 @@ def product(item_id):
     result = query.fetchall()
     return render_template('product.html', item = result[0], itemname = item_id)
 
-# หน้า shopping #8
+# หน้า Category #
 @app.route('/shopping_home')
 def shopping_home():
     query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -95,27 +102,32 @@ def shopping_home():
     print("id =", result[0])
     return render_template('shopping_home.html', products = result)
 
+# หน้า Category สินค้าแบบแยกตามประเภทสินค้า #
 @app.route('/shopping_1')
 def shopping_1():
     return render_template('shopping_1.html')
 
+# หน้า Category สินค้าแบบแยกตามประเภทสินค้า #
 @app.route('/shopping_2')
 def shopping_2():
     return render_template('shopping_2.html')
 
+# หน้า Category สินค้าแบบแยกตามประเภทสินค้า #
 @app.route('/shopping_3')
 def shopping_3():
     return render_template('shopping_3.html')
 
+# หน้า Category สินค้าแบบแยกตามประเภทสินค้า #
 @app.route('/shopping_4')
 def shopping_4():
     return render_template('shopping_4.html')
 
-# หน้า user/login #
+# หน้า User Profile #
 @app.route('/user')
 def user():
     return render_template('user.html')
 
+# หน้า Login เข้าบัญชี #
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
@@ -137,6 +149,7 @@ def login():
             mesage = 'Please enter correct email / password !'
     return render_template('login.html', mesage = mesage)
 
+# ระบบ Logout #
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
@@ -144,6 +157,7 @@ def logout():
     session.pop('email', None)
     return redirect(url_for('index'))
 
+# หน้าต่างสมัครสมาชิกเว็บไซต์ #
 @app.route('/register', methods =['GET', 'POST'])
 def register():
     mesage = ''
@@ -160,6 +174,10 @@ def register():
             mesage = 'Invalid email address !'
         elif not userName or not password or not email:
             mesage = 'Please fill out the form !'
+        elif password == userName:
+            mesage = 'Please fill out the form !'
+        elif len(password) < 8:
+            mesage = 'Please fill you password more than 8 letters !'
         else:
             cursor.execute('INSERT INTO user VALUES (NULL, % s, % s, % s)', (userName, email, password, ))
             mysql.connection.commit()
@@ -168,7 +186,7 @@ def register():
         mesage = 'Please fill out the form !'
     return render_template('register.html', mesage = mesage)
 
-# หน้าขาย #
+# หน้าขายสินค้าลงบนหน้าเว็บ (เก็บข้อมูลลง Database) #
 @app.route('/selling', methods =['GET', 'POST'])
 def seller():
     noti = ''
@@ -190,17 +208,7 @@ def seller():
                                                                                            conTact, imageproduct, ))
             mysql.connection.commit()
             noti = 'You have successfully selling your product !'
-# elif request.method == 'POST':
-#     noti = 'Please fill out the form !'
     return render_template('seller.html', mesage = noti)
 
-@app.route('/test', methods = ['GET'])
-def test():
-    idx = request.args.get('productId')
-    query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    query.execute('SELECT * FROM inventory WHERE productId = '+ idx + " ;")
-    result = query.fetchone()
-    return render_template('test.html', mesage = result)
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
