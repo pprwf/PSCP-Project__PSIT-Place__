@@ -122,11 +122,12 @@ def shopping_3():
 def shopping_4():
     return render_template('shopping_4.html')
 
-# หน้า User login #
+# หน้า User Profile #
 @app.route('/user')
 def user():
     return render_template('user.html')
 
+# หน้า Login เข้าบัญชี #
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
@@ -148,6 +149,7 @@ def login():
             mesage = 'Please enter correct email / password !'
     return render_template('login.html', mesage = mesage)
 
+# ระบบ Logout #
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
@@ -155,6 +157,7 @@ def logout():
     session.pop('email', None)
     return redirect(url_for('index'))
 
+# หน้าต่างสมัครสมาชิกเว็บไซต์ #
 @app.route('/register', methods =['GET', 'POST'])
 def register():
     mesage = ''
@@ -183,7 +186,7 @@ def register():
         mesage = 'Please fill out the form !'
     return render_template('register.html', mesage = mesage)
 
-# หน้าขาย #
+# หน้าขายสินค้าลงบนหน้าเว็บ (เก็บข้อมูลลง Database) #
 @app.route('/selling', methods =['GET', 'POST'])
 def seller():
     noti = ''
@@ -206,14 +209,6 @@ def seller():
             mysql.connection.commit()
             noti = 'You have successfully selling your product !'
     return render_template('seller.html', mesage = noti)
-
-@app.route('/test', methods = ['GET'])
-def test():
-    idx = request.args.get('productId')
-    query = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    query.execute('SELECT * FROM inventory WHERE productId = '+ idx + " ;")
-    result = query.fetchone()
-    return render_template('test.html', mesage = result)
 
 if __name__ == "__main__":
     app.run(debug=False)
